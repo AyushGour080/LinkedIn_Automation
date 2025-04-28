@@ -18,7 +18,7 @@ import os
 import csv
 import re
 import pyautogui
-
+import gzip
 from random import choice, shuffle, randint
 from datetime import datetime
 
@@ -156,7 +156,7 @@ def get_applied_job_ids() -> set:
     '''
     job_ids = set()
     try:
-        with open(file_name, 'r', encoding='utf-8') as file:
+        with gzip.open("somefile.gz", "rt", encoding="utf-8") as file:
             reader = csv.reader(file)
             for row in reader:
                 job_ids.add(row[0])
